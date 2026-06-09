@@ -1,0 +1,33 @@
+version: 0.0.1
+type: plugin
+author: shaba
+name: carddav
+repo: https://github.com/shaba/dify-plugin-carddav
+label:
+  en_US: CardDAV
+description:
+  en_US: "Read and create contacts on any CardDAV server (Nextcloud, Radicale, …)"
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    model:
+      enabled: false
+    node:
+      enabled: false
+plugins:
+  tools:
+    - provider/carddav.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+tags:
+  - productivity
+created_at: "2026-06-10T00:00:00Z"

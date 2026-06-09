@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<d:multistatus xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
+  <d:response>
+    <d:href>/remote.php/dav/addressbooks/users/alice/contacts/john.vcf</d:href>
+    <d:propstat>
+      <d:prop>
+        <d:getetag>"etag-john-1"</d:getetag>
+        <card:address-data>BEGIN:VCARD
+VERSION:3.0
+UID:john-doe-uid
+FN:John Doe
+N:Doe;John;;;
+EMAIL;TYPE=WORK:john@acme.example
+EMAIL;TYPE=HOME:john@home.example
+TEL;TYPE=CELL:+1-202-555-0143
+ORG:Acme;Engineering
+TITLE:Senior Engineer
+END:VCARD
+</card:address-data>
+      </d:prop>
+      <d:status>HTTP/1.1 200 OK</d:status>
+    </d:propstat>
+  </d:response>
+  <d:response>
+    <d:href>/remote.php/dav/addressbooks/users/alice/contacts/mary.vcf</d:href>
+    <d:propstat>
+      <d:prop>
+        <d:getetag>"etag-mary-1"</d:getetag>
+        <card:address-data>BEGIN:VCARD
+VERSION:3.0
+UID:mary-jane-uid
+FN:Mary Jane
+N:Jane;Mary;;;
+EMAIL:mary.jane@example.org
+TEL:+1-202-555-0188
+ORG:Globex
+END:VCARD
+</card:address-data>
+      </d:prop>
+      <d:status>HTTP/1.1 200 OK</d:status>
+    </d:propstat>
+  </d:response>
+  <d:response>
+    <d:href>/remote.php/dav/addressbooks/users/alice/contacts/broken.vcf</d:href>
+    <d:propstat>
+      <d:prop>
+        <d:getetag>"etag-broken"</d:getetag>
+        <card:address-data>this is not a vcard</card:address-data>
+      </d:prop>
+      <d:status>HTTP/1.1 200 OK</d:status>
+    </d:propstat>
+  </d:response>
+</d:multistatus>

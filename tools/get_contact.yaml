@@ -1,0 +1,31 @@
+identity:
+  name: get_contact
+  author: shaba
+  label:
+    en_US: Get contact
+description:
+  human:
+    en_US: Get the full details of one contact
+  llm: Get the full details of a single contact (name, all emails, all phones, organization, title, UID) by an exact UID, exact full name, or a unique name/email substring. Use when you need every field of one specific person.
+parameters:
+  - name: identifier
+    type: string
+    required: true
+    label:
+      en_US: Identifier
+    human_description:
+      en_US: Contact UID, full name, or a unique name/email substring
+    llm_description: A contact UID, an exact full name, or a name/email substring that uniquely identifies one contact.
+    form: llm
+  - name: addressbook
+    type: string
+    required: false
+    label:
+      en_US: Address book
+    human_description:
+      en_US: Address book name or href substring (default — first available)
+    llm_description: Name (or part of the href) of the address book to look in. Omit to use the first available address book.
+    form: llm
+extra:
+  python:
+    source: tools/get_contact.py

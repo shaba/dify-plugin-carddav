@@ -1,0 +1,49 @@
+identity:
+  author: shaba
+  name: carddav
+  label:
+    en_US: CardDAV
+  description:
+    en_US: CardDAV — read and create contacts on any CardDAV server
+  icon: icon.svg
+  tags:
+    - productivity
+credentials_for_provider:
+  base_url:
+    type: text-input
+    required: true
+    label:
+      en_US: CardDAV base URL
+    placeholder:
+      en_US: https://example.com/remote.php/dav/
+    help:
+      en_US: >-
+        Base/discovery URL of the CardDAV server. For Nextcloud use
+        https://example.com/remote.php/dav/ ; for Radicale the account URL
+        (e.g. https://example.com/radicale/user/).
+    url: https://example.com/remote.php/dav/
+  username:
+    type: text-input
+    required: true
+    label:
+      en_US: Username
+    placeholder:
+      en_US: alice
+    help:
+      en_US: CardDAV account username
+  password:
+    type: secret-input
+    required: true
+    label:
+      en_US: Password
+    help:
+      en_US: CardDAV account password or app password
+tools:
+  - tools/list_addressbooks.yaml
+  - tools/list_contacts.yaml
+  - tools/search_contacts.yaml
+  - tools/get_contact.yaml
+  - tools/create_contact.yaml
+extra:
+  python:
+    source: provider/carddav.py

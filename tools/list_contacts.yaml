@@ -1,0 +1,22 @@
+identity:
+  name: list_contacts
+  author: shaba
+  label:
+    en_US: List contacts
+description:
+  human:
+    en_US: List contacts in an address book
+  llm: List the contacts in a CardDAV address book, with name, organization, email and phone. Use to browse all contacts. If no address book is given, the first available one is used.
+parameters:
+  - name: addressbook
+    type: string
+    required: false
+    label:
+      en_US: Address book
+    human_description:
+      en_US: Address book name or href substring (default — first available)
+    llm_description: Name (or part of the href) of the address book to list. Omit to use the first available address book.
+    form: llm
+extra:
+  python:
+    source: tools/list_contacts.py

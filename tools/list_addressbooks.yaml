@@ -1,0 +1,13 @@
+identity:
+  name: list_addressbooks
+  author: shaba
+  label:
+    en_US: List address books
+description:
+  human:
+    en_US: List the address books available on the CardDAV server
+  llm: List the address books (contact collections) available to the configured CardDAV account. Returns each address book name and description. Use first to discover which address book to read from or write to.
+parameters: []
+extra:
+  python:
+    source: tools/list_addressbooks.py

@@ -1,0 +1,67 @@
+identity:
+  name: create_contact
+  author: shaba
+  label:
+    en_US: Create contact
+description:
+  human:
+    en_US: Create a new contact in an address book
+  llm: Create a new contact in a CardDAV address book. Requires a full name; emails, phones, organization and title are optional. Multiple emails or phones may be given comma-separated. Writing succeeds only if the account has write permission on the address book.
+parameters:
+  - name: full_name
+    type: string
+    required: true
+    label:
+      en_US: Full name
+    human_description:
+      en_US: Full display name of the contact
+    llm_description: The contact's full display name, e.g. "Jane Roe".
+    form: llm
+  - name: emails
+    type: string
+    required: false
+    label:
+      en_US: Emails
+    human_description:
+      en_US: One or more email addresses, comma-separated
+    llm_description: One or more email addresses, comma-separated.
+    form: llm
+  - name: phones
+    type: string
+    required: false
+    label:
+      en_US: Phones
+    human_description:
+      en_US: One or more phone numbers, comma-separated
+    llm_description: One or more phone numbers, comma-separated.
+    form: llm
+  - name: org
+    type: string
+    required: false
+    label:
+      en_US: Organization
+    human_description:
+      en_US: Company or organization name
+    llm_description: Company or organization the contact belongs to.
+    form: llm
+  - name: title
+    type: string
+    required: false
+    label:
+      en_US: Job title
+    human_description:
+      en_US: Job title or position
+    llm_description: Job title or position of the contact.
+    form: llm
+  - name: addressbook
+    type: string
+    required: false
+    label:
+      en_US: Address book
+    human_description:
+      en_US: Address book name or href substring (default — first available)
+    llm_description: Name (or part of the href) of the address book to create the contact in. Omit to use the first available address book.
+    form: llm
+extra:
+  python:
+    source: tools/create_contact.py

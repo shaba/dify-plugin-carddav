@@ -1,0 +1,31 @@
+identity:
+  name: search_contacts
+  author: shaba
+  label:
+    en_US: Search contacts
+description:
+  human:
+    en_US: Search contacts by name or email substring
+  llm: Search contacts in a CardDAV address book by a name or email substring (case-insensitive). Returns matching contacts with name, organization, email and phone. Use to find a specific person.
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query
+    human_description:
+      en_US: Name or email substring to match
+    llm_description: Substring to match against contact name, organization or email (case-insensitive).
+    form: llm
+  - name: addressbook
+    type: string
+    required: false
+    label:
+      en_US: Address book
+    human_description:
+      en_US: Address book name or href substring (default — first available)
+    llm_description: Name (or part of the href) of the address book to search. Omit to use the first available address book.
+    form: llm
+extra:
+  python:
+    source: tools/search_contacts.py
